@@ -4,56 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dice Roller</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-        }
-        .container {
-            margin: 50px auto;
-            padding: 20px;
-            background: white;
-            max-width: 400px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-        h1 { color: #333; }
-        .dice-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            font-size: 100px;
-            margin: 20px 0;
-        }
-        button {
-            font-size: 18px;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            background-color: #007BFF;
-            color: white;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        .history {
-            margin-top: 20px;
-            text-align: left;
-            max-height: 150px;
-            overflow-y: auto;
-            background: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        }
-        .result {
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -67,29 +18,8 @@
         <div class="history" id="history"><strong>Roll History:</strong><br></div>
     </div>
 
-    <script>
-        function rollDice() {
-            const diceFaces = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
-            const diceValues = { '⚀': 1, '⚁': 2, '⚂': 3, '⚃': 4, '⚄': 5, '⚅': 6 };
-            
-            const randomFace1 = diceFaces[Math.floor(Math.random() * diceFaces.length)];
-            const randomFace2 = diceFaces[Math.floor(Math.random() * diceFaces.length)];
-            
-            document.getElementById("dice1").innerText = randomFace1;
-            document.getElementById("dice2").innerText = randomFace2;
-            
-            const score1 = diceValues[randomFace1];
-            const score2 = diceValues[randomFace2];
-            const totalScore = score1 + score2;
-            
-            document.getElementById("result").innerText = `Total Score: ${totalScore}`;
-            
-            const historyDiv = document.getElementById("history");
-            historyDiv.innerHTML += `🎲 ${randomFace1} - ${randomFace2} (Total: ${totalScore})<br>`;
-            
-            let audio = new Audio('https://www.myinstants.com/media/sounds/dice-roll.mp3');
-            audio.play();
-        }
+    <script src="./app.js">
+        
     </script>
 </body>
 </html>
